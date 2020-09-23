@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "live-server public/ && nodemon src/eddy.js",
     "test": "mocha",
-    "start": "nodemon src/index.js"
+    "start": "nodemon --watch contents --watch templates --watch public --watch src -e js,njk,md src/index.js"
   },
   "devDependencies": {
     "express": "^4.17.1",

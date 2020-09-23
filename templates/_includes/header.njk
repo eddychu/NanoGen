@@ -4,33 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    {% if isHome %}
-    <title>Home | {{site.title}}</title>
-    {% else %}
-    <title>{{page.title}} | {{site.title}}</title>
-    {% endif %}
-    <meta name="author" content={{site.author}} />
-    <meta name="description" content={{'"'+ site.description + '"'}} />
-    <meta name="keywords" content={{'"'+ site.keywords + ", " + page.keywords + '"'}} />
+    <title>{{site.title}}</title>
     <link
-      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+      href="static/css/style.css"
       rel="stylesheet"
     />
-    <!--Replace with your tailwind.css once created-->
   </head>
 
-  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    <div class="container mx-auto max-w-lg">
-      <div class="pl-4 mt-3">
-        <a
-          class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-2xl"
-          href="/"
-        >
-          {{site.title}}
-        </a>
-      </div>
-      <hr />
-    
+  <div class="container">
+  <nav>
+  <h1>{{site.title}}</h1>
+  </nav>
+  <hr />
+ 
       
 
  

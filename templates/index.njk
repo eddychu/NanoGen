@@ -1,13 +1,13 @@
 {% extends "layout-default.njk" %}
 
 {% block content %}
-<ul class="list-disc">
+<ul>
 {% for post in posts %}
-     <li>
-     <h1 class="font-sans break-normal pt-6 pb-2 text-1xl">
-        <a href={{post.type + "/" + post.slug}} class="underline hover:text-gray-800 text-gray-900">
+    <li>
+     <h3>
+        <a href={{"./" + post.slug + ".html"}}>
         {{ post.title }}</a>
-        </h1>
+     </h3>
     </li>
 {% endfor %}
 </ul>

@@ -5,7 +5,6 @@
   "repository": "https://github.com/eddychu/eddychu.github.io.git",
   "author": "Ahq <59189798+ahqcoding@users.noreply.github.com>",
   "license": "MIT",
-  "type": "module",
   "dependencies": {
     "front-matter": "^4.0.2",
     "fs-extra": "^9.0.1",
@@ -13,6 +12,11 @@
     "nunjucks": "^3.2.2"
   },
   "scripts": {
-    "dev": "live-server public/ && nodemon src/eddy.js"
+    "dev": "live-server public/ && nodemon src/eddy.js",
+    "test": "mocha",
+    "start": "node src/index.js"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.3"
   }
 }

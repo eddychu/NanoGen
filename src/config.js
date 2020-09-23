@@ -1,11 +1,6 @@
 const fs = require("fs");
 const YAML = require("yaml");
 
-const defaultConfig = {
-  templatePath: "templates",
-  outputPath: "public",
-  contentPath: "contents",
-};
 
 const configYamlPath = "config.yml";
 

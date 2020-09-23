@@ -26,7 +26,6 @@ class Builder {
 
   async buildCategories() {
     let categories = this.ctx.collector.getAllCategories();
-    console.log(categories);
     await Promise.all(categories.map(this.buildCategory.bind(this)));
   }
 

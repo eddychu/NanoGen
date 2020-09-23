@@ -1,4 +1,6 @@
 const express = require("express");
+const chokida = require("chokidar");
+
 const DEFAULTS = require("./default");
 const port = 3000;
 
@@ -21,6 +23,27 @@ class Server {
     await this.ctx.build();
     this.app.listen(port, () => {
       console.log(`Example app listening at http://localhost:${port}`);
+    });
+  }
+
+  async close() {
+    this.app.close();
+  }
+
+  async watch() {
+    await this.serve();
+    let watcher = chokida.watch(
+      [DEFAULTS.contentPath, DEFAULTS.templatePath, "src"],
+      {
+        ignored: /(^|[\/\\])\../, // ignore dotfiles
+        persistent: true,
+      }
+    );
+    watcher.add(["../contents/**", "../templates/**"]);
+    // var watchedPaths = watcher.getWatched();
+
+    watcher.on("change", async () => {
+      this.ctx.build();
     });
   }
 }

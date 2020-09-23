@@ -37,6 +37,10 @@ class NanoGen {
   async serve() {
     await this.server.serve();
   }
+
+  async watch() {
+    await this.server.watch();
+  }
 }
 
 module.exports = NanoGen;

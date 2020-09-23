@@ -11,5 +11,8 @@ program
     await nanoGen.collect();
     await nanoGen.create(slug);
   });
+program.command("serve").action(async function () {
+  await nanoGen.watch();
+});
 
 program.parse(process.argv);

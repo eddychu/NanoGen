@@ -37,11 +37,9 @@ class Collector {
   getAllCategories() {
     let categories = [];
     for (let post of this.cache) {
-      console.log(post.category);
       if (post.category) {
         categories = categories.concat(post.category);
       }
-      console.log("in loop", categories);
     }
 
     return categories.filter(

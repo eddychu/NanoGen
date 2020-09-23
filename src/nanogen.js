@@ -26,11 +26,16 @@ class NanoGen {
   }
 
   async create(slug) {
-    await this.creator.create(slug);
+    console.log("creating");
+    if (!this.collector.isInCache(slug)) {
+      await this.creator.create(slug);
+    } else {
+      console.log("file already existed ", slug + ".md");
+    }
   }
 
-  serve() {
-    this.server.serve();
+  async serve() {
+    await this.server.serve();
   }
 }
 

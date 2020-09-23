@@ -14,11 +14,11 @@ class Server {
   constructor(ctx) {
     this.ctx = ctx;
     this.app = express();
+    this.app.use(express.static(DEFAULTS.outputPath));
   }
 
-  serve() {
-    this.app.use(express.static(DEFAULTS.outputPath));
-
+  async serve() {
+    await this.ctx.build();
     this.app.listen(port, () => {
       console.log(`Example app listening at http://localhost:${port}`);
     });

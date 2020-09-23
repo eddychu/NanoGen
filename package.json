@@ -6,6 +6,7 @@
   "author": "Ahq <59189798+ahqcoding@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "commander": "^6.1.0",
     "front-matter": "^4.0.2",
     "fs-extra": "^9.0.1",
     "marked": "^1.1.1",
@@ -14,7 +15,7 @@
   "scripts": {
     "dev": "live-server public/ && nodemon src/eddy.js",
     "test": "mocha",
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/index.js"
   },
   "devDependencies": {
     "express": "^4.17.1",

@@ -14,9 +14,12 @@
   "scripts": {
     "dev": "live-server public/ && nodemon src/eddy.js",
     "test": "mocha",
-    "start": "node src/index.js"
+    "start": "nodemon src/server.js"
   },
   "devDependencies": {
-    "mocha": "^8.1.3"
+    "express": "^4.17.1",
+    "mocha": "^8.1.3",
+    "nodemon": "^2.0.4",
+    "yaml": "^1.10.0"
   }
 }

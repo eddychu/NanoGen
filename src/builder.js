@@ -24,6 +24,20 @@ class Builder {
     console.log("created file ", outputPath);
   }
 
+  async buildCategories() {
+    let categories = this.ctx.collector.getAllCategories();
+    console.log(categories);
+    await Promise.all(categories.map(this.buildCategory.bind(this)));
+  }
+
+  async buildCategory(category) {
+    let posts = this.ctx.collector.getPostsByCatetory(category);
+    let output = this.ctx.renderer.render("index.njk", { posts });
+    let outputPath = path.resolve(DEFAULTS.outputPath, category + ".html");
+    await fs.outputFile(outputPath, output);
+    console.log("created file ", outputPath);
+  }
+
   async buildStatic() {
     let source = path.resolve(DEFAULTS.templatePath, "static");
     let destination = path.resolve(DEFAULTS.outputPath, "static");
@@ -34,6 +48,7 @@ class Builder {
   async build(posts) {
     await this.buildIndex(posts);
     await this.buildPosts(posts);
+    await this.buildCategories();
     await this.buildStatic();
     console.log("done");
   }

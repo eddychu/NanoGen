@@ -5,7 +5,19 @@ const marked = require("marked");
 const frontMatter = require("front-matter");
 
 function normalizePost(post) {
-  return { body: post.bodyHTML, slug: post.slug, ...post.attributes };
+  let normalized = {
+    body: post.bodyHTML,
+    slug: post.slug,
+    ...post.attributes,
+  };
+  if (normalized.category) {
+    normalized.category = getCategory(normalized.category);
+  }
+  return normalized;
+}
+
+function getCategory(categoryString) {
+  return categoryString.split(",").map((item) => item.trim());
 }
 class Collector {
   constructor(ctx) {
@@ -20,6 +32,27 @@ class Collector {
     let finalPosts = await Promise.all(posts.map(this.getPost.bind(this)));
     this.cache = finalPosts;
     return finalPosts;
+  }
+
+  getAllCategories() {
+    let categories = [];
+    for (let post of this.cache) {
+      console.log(post.category);
+      if (post.category) {
+        categories = categories.concat(post.category);
+      }
+      console.log("in loop", categories);
+    }
+
+    return categories.filter(
+      (item, index) => categories.indexOf(item) === index
+    );
+  }
+
+  getPostsByCatetory(category) {
+    return this.cache.filter((post) => {
+      return post.category && post.category.indexOf(category) > -1;
+    });
   }
 
   async getPost(post) {

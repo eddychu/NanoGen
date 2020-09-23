@@ -1,5 +1,3 @@
-import NanoGen from "../scripts/NanoGen.js";
-
 import assert from "assert";
 
 describe("Array", function () {

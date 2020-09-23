@@ -1,6 +1,7 @@
 ---
 title: hello world
 author: Eddy Chu
+category: blog, thoughts, javascript
 ---
 
 # Markdown: Syntax

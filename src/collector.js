@@ -63,12 +63,9 @@ class Collector {
   }
 
   isInCache(slug) {
-    console.log(this.cache);
     let index = this.cache.findIndex((post) => {
-      console.log(post.slug);
       return post.slug === slug;
     });
-    console.log(index);
     return index > -1;
   }
 }

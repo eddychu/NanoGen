@@ -1,6 +1,6 @@
 const DEFAULTS = {
   templatePath: "templates",
-  outputPath: "public",
+  outputPath: "docs",
   contentPath: "contents",
 };
 

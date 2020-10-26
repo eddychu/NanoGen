@@ -8,10 +8,14 @@ class NanoGen {
   constructor() {
     this.collector = new Collector(this);
     this.builder = new Builder(this);
-    this.renderer = new Renderer(this);
     this.creator = new Creator(this);
     this.server = new Server(this);
     this.config = getConfig();
+    this.initTemplate();
+  }
+
+  initTemplate() {
+    this.renderer = new Renderer(this);
     this.renderer.addConfig("site", this.config);
   }
 

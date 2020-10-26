@@ -6,7 +6,10 @@ class Renderer {
     this.ctx = ctx;
     this.nunjucks = new nunjucks.Environment(
       new nunjucks.FileSystemLoader(DEFAULTS.templatePath),
-      { autoescape: false }
+      { autoescape: false,
+        noCache: true,
+        watch: true,
+      }
     );
   }
 

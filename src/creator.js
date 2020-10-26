@@ -15,7 +15,7 @@ class Creator {
 
     let defaultMarkdownTemplate = `---
 title: ${title}
-created: ${new Date()}
+created: ${new Date().toISOString()}
 ---`;
     let fullPath = path.resolve(DEFAULTS.contentPath, slug + ".md");
     await fs.outputFile(fullPath, defaultMarkdownTemplate);

@@ -43,7 +43,10 @@ class Server {
     // var watchedPaths = watcher.getWatched();
 
     watcher.on("change", async () => {
+      this.ctx.initTemplate();
+      console.log("change template")
       this.ctx.build();
+    
     });
   }
 }

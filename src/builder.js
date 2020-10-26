@@ -18,6 +18,7 @@ class Builder {
   }
 
   async buildIndex(posts) {
+    console.log(posts);
     let output = this.ctx.renderer.render("index.njk", { posts });
     let outputPath = path.resolve(DEFAULTS.outputPath, "index.html");
     await fs.outputFile(outputPath, output);

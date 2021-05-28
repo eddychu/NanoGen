@@ -7,6 +7,7 @@ class Builder {
     this.ctx = ctx;
   }
   async buildPost(post) {
+    console.log(post);
     let output = this.ctx.renderer.render("single.njk", { post });
     let outputPath = path.resolve(DEFAULTS.outputPath, post.slug + ".html");
     await fs.outputFile(outputPath, output);
@@ -18,7 +19,10 @@ class Builder {
   }
 
   async buildIndex(posts) {
-    console.log(posts);
+    console.log("test", posts);
+    posts.sort((a, b) => {
+      return b.created - a.created;
+    })
     let output = this.ctx.renderer.render("index.njk", { posts });
     let outputPath = path.resolve(DEFAULTS.outputPath, "index.html");
     await fs.outputFile(outputPath, output);

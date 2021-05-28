@@ -30,7 +30,6 @@ class NanoGen {
   }
 
   async create(slug) {
-    console.log("creating");
     if (!this.collector.isInCache(slug)) {
       await this.creator.create(slug);
     } else {

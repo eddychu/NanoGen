@@ -10,7 +10,7 @@
     "commander": "^6.1.0",
     "front-matter": "^4.0.2",
     "fs-extra": "^9.0.1",
-    "marked": "^1.1.1",
+    "marked": "^2.0.6",
     "moment": "^2.29.1",
     "nunjucks": "^3.2.2"
   },

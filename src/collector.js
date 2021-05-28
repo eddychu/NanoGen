@@ -6,8 +6,8 @@ const moment = require("moment");
 const frontMatter = require("front-matter");
 
 function normalizePost(post) {
-  if(post.attributes.created) {
-    post.attributes.created = moment(post.attributes.created).format("MMM Do YYYY");  
+  if (post.attributes.created) {
+    post.attributes.created = Date.parse(post.attributes.created)
   }
   let normalized = {
     body: post.bodyHTML,

@@ -34,6 +34,7 @@ class Builder {
     await Promise.all(categories.map(this.buildCategory.bind(this)));
   }
 
+
   async buildCategory(category) {
     let posts = this.ctx.collector.getPostsByCatetory(category);
     let output = this.ctx.renderer.render("index.njk", { posts });

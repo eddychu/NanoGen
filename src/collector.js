@@ -2,7 +2,6 @@ const fs = require("fs-extra");
 const path = require("path");
 const DEFAULTS = require("./default");
 const marked = require("marked");
-const moment = require("moment");
 const frontMatter = require("front-matter");
 
 function normalizePost(post) {

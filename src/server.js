@@ -46,7 +46,6 @@ class Server {
       this.ctx.initTemplate();
       console.log("change template")
       this.ctx.build();
-    
     });
   }
 }

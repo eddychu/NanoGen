@@ -1,9 +1,10 @@
 {% extends "layout-default.njk" %}
 {% block content %}
 <div>
-<h1>
+<h2>
  {{post.title}}
-</h1>
+</h2>
+<em><a href={{"/" + post.category + ".html"}}>{{post.category}}</a></em>
 {{post.body}}
 </div>
 {% endblock %} 
